@@ -1,0 +1,27 @@
+{
+    "name": "react-native-aadhaar-sdk",
+    "version": "1.0.0",
+    "description": "Aadhaar SDK to fetch Aadhar Offline XML File and its details",
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/PocketlyIndia/react-native-aadhaar-sdk"
+    },
+    "keywords": [
+        "aadhaar",
+        "xml",
+        "details",
+        "programtically",
+        "fetch",
+        "aadhaar",
+        "data",
+        "api",
+        "react-native",
+        "react"
+    ],
+    "dependencies": {},
+    "scripts": {
+        "test": "echo 'Testing?'"
+    },
+    "author": "Pocketly"
+}
