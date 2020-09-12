@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TextInput, ActivityIndicator, Button, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, ActivityIndicator, TouchableOpacity } from 'react-native';
 
 const headers = { 'content-type': 'application/json' };
 const getFetchConfig = (bodyJSON) => {
@@ -94,6 +94,7 @@ export default class AadharVerificationView extends React.Component {
         super(props);
         this.clientId = this.props.clientId;
         this.onSuccess = this.props.onSuccess;
+        this.askShareCodeFromUser = this.props.askShareCodeFromUser || false;
         if(!this.clientId) {
             throw new Error(`AadharVerificationView can only be initialized when a clientId is passed as a prop`);
         }
@@ -106,6 +107,7 @@ export default class AadharVerificationView extends React.Component {
             generateOTPResponse: null,
             aadhaarNumberText: '',
             otpText: '',
+            shareCodeText: '',
             showOnlyLoader: false,
         };
     }
@@ -157,10 +159,12 @@ export default class AadharVerificationView extends React.Component {
     }
 
     otpDidSubmit = () => {
-        const { otpText, generateOTPResponse } = this.state;
+        const { otpText, generateOTPResponse, shareCodeText } = this.state;
         const clientId = this.clientId;
         const { generateOTPReferenceId } = generateOTPResponse;
-        const body = { otp: otpText, clientId, generateOTPReferenceId };
+        const body = this.askShareCodeFromUser ?
+                            { otp: otpText, clientId, generateOTPReferenceId, shareCode: shareCodeText } :
+                            { otp: otpText, clientId, generateOTPReferenceId };
         try {
             this.setState({ showOnlyLoader: true });
             fetch(SUBMIT_OTP_URL, getFetchConfig(body))
@@ -228,6 +232,22 @@ export default class AadharVerificationView extends React.Component {
                         placeholderTextColor={'#00000018'}
                     />
                 </View>
+                {
+                    this.askShareCodeFromUser &&
+                    <View style={{...styles.inputView, marginTop: 20}}>
+                        <Text style={styles.label}>4 digit Share Code</Text>
+                        <TextInput
+                            style={styles.inputText}
+                            value={this.state.shareCodeText}
+                            onChangeText={(shareCodeText) => this.setState({ shareCodeText })}
+                            autoCapitalize={'none'}
+                            keyboardType={'number-pad'}
+                            autoCorrect={false}
+                            placeholder={'Enter random 4 digits'}
+                            placeholderTextColor={'#00000018'}
+                        />
+                    </View>
+                }
                 <View style={styles.hintView}>
                     <Text style={styles.hintText}>✅ OTP has been sent to your Aadhaar linked mobile number</Text>
                 </View>
