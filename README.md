@@ -14,6 +14,8 @@ The user journey is as follows:
 # Installation
 ```sh
 $ npm install react-native-aadhaar-sdk --save
+OR
+$ npm install https://github.com/PocketlyIndia/react-native-aadhaar-sdk
 ```
 
 # Integration / Usage
