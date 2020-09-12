@@ -1,6 +1,11 @@
+import React from 'react';
 
-import React, { Component } from 'react';
-
-export default interface AadharVerificationView extends Component {
-
+export interface AadharVerificationViewProps {
+    clientId: string;
+    onSuccess: (payload: JSON) => any;
+    askShareCodeFromUser?: boolean;
 };
+
+declare const AadharVerificationView: React.SFC<AadharVerificationViewProps>;
+
+export default AadharVerificationView;
