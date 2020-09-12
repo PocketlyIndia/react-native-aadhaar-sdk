@@ -35,6 +35,7 @@ render() {
             <AadharVerificationView
                 clientId={'CLIENT_ID_OBTAINED_IN_YOUR_BACKEND'}
                 onSuccess={response => alert(response.xml)}
+                askShareCodeFromUser={false}
             />
         </View>
     );
