@@ -39,6 +39,39 @@ render() {
 }
 ```
 
+# Response
+```json
+{
+    "aadhaarNumber": "607462814339",
+    "fullName": "Harry Potter",
+    "careOf": "S/O: Lily Potter",
+    "dob": "05-11-1996",
+    "emailHash": "81aa7eaa15c5022b11f9bf9d6f...",
+    "mobileHash": "d737962d57d5854d6bf27c2608...",
+    "gender": "M",
+    "address": {
+        "careof": "Albus Dumbledore",
+        "country": "India",
+        "dist": "Surrey",
+        "house": "4 Privet Drive",
+        "landmark": "Near that school",
+        "loc": "Surrey",
+        "pc": "654321",
+        "po": "Hogwarts",
+        "state": "Bengaluru",
+        "street": "STREET NO. 33",
+        "subdist": "Civil Lines",
+        "vtc": "HSR Layout"
+    },
+    "postalCode": "654321",
+    "profileImage": "/9j/4AAQSkZJRgABAgAAAQABAAD/...",
+    "hasImage": true,
+    "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?><OfflinePaperlessKyc refer...",
+    "shareCode": "7194",
+    "zipFileBase64": "UEsDBBQACQAIAKi0LFEAAAAAAA..."
+}
+```
+
 # Demo
 ![Demo GIF](demo.gif)
 
